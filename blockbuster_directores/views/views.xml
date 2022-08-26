@@ -1,0 +1,12 @@
+<odoo>
+  <data>
+    <record id="peliculas_view_form_inherit" model="ir.ui.view">
+      <field name="name">peliculas_view_form_inherit</field>
+      <field name="model">blockbuster.peliculas</field>
+      <field name="inherit_id" ref="blockbuster.peliculas_view_form" />
+      <!-- <field name="arch" type="xml">
+        <field name="genero" position="after"></field>
+      </field> -->
+    </record>
+  </data>
+</odoo>

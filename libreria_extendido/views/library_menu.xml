@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_res_partner_filter_inherit" model="ir.ui.view">
+            <field name="name">view_res_partner_filter_inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <filter name="type_company" position="after">
+                    <filter string="Autor" name="type_autor" domain="[('es_autor', '=', True)]"/>
+                </filter>
+            </field>
+        </record>
+
+        <record id="autores_action" model="ir.actions.act_window">
+            <field name="name">Autores</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">kanban,tree,form,activity</field>
+            <field name="search_view_id" ref="base.view_res_partner_filter"/>
+            <field name="context">{'default_es_autor': True, 'default_company_type': 'person', 'search_default_type_autor':1}</field>
+            <!-- <field name="domain">[('es_autor','=',True),('company_type','=','person')]</field> -->
+        </record>
+
+        <menuitem name="Personas" id="personas_menu" parent="libreria.libreria_menu"/>
+        <menuitem name="Autores" id="autores_menu" action="autores_action" parent="personas_menu"/>
+    </data>
+</odoo>

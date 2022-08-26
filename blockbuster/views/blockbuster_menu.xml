@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="peliculas_view_form" model="ir.ui.view">
+            <field name="name">peliculas.view.form</field>
+            <field name="model">blockbuster.peliculas</field>
+            <field name="arch" type="xml">
+                <form string="Pelicula">
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                            <field name='director'></field>
+                            <field name="genero"></field>
+                            <field name="presupuesto"/>
+                            <field name='fecha_estreno'/>
+                            <field name='disponibilidad'/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="peliculas_action" model="ir.actions.act_window">
+            <field name="name">peliculas</field>
+            <field name="res_model">blockbuster.peliculas</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <menuitem name="Mi Blockbuster" id="blockbuster_menu" />
+        <menuitem name="Peliculas" id="peliculas_menu" action="peliculas_action" parent="blockbuster_menu" />
+    </data>
+</odoo>

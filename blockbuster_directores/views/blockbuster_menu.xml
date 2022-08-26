@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_res_partner_filter_inherit" model="ir.ui.view">
+            <field name="name">view_res_partner_filter_inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <filter name="type_company" position="after">
+                    <filter string="Director" name="type_director" domain="[('es_director', '=', True)]"/>
+                </filter>
+            </field>
+        </record>
+
+        <record id="directores_action" model="ir.actions.act_window">
+            <field name="name">Directores</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">kanban,tree,form,activity</field>
+            <field name="search_view_id" ref="base.view_res_partner_filter"/>
+            <!-- <field name="context">{'default_es_director': True, 'default_company_type': 'person', 'search_default_type_director':1}</field> -->
+            <!-- <field name="domain">[('es_autor','=',True),('company_type','=','person')]</field> -->
+        </record>
+
+        <menuitem name="Directores" id="directores_menu" parent="blockbuster.blockbuster_menu"/>
+        <menuitem name="Personas" id="personas_menu" action="directores_action" parent="directores_menu"/>
+    </data>
+</odoo>
