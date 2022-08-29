@@ -1,0 +1,17 @@
+<odoo>
+  <data>
+    <record id="libros_view_form_inherit" model="ir.ui.view">
+      <field name="name">libros_view_form_inherit</field>
+      <field name="model">libreria.libros</field>
+      <field name="inherit_id" ref="libreria.libros_view_form"/>
+      <field name="arch" type="xml">
+        <!-- <xpath expr="//field[@name='genero']" position="after">
+        </xpath> -->
+        <field name="genero" position="after">
+          <field name="isbn" placeholder="Flaco, no ves que es obligatorio!"/>
+          <field name="codigo_interno"/>
+        </field>
+      </field>
+    </record>
+  </data>
+</odoo>

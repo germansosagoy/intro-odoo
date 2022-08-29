@@ -1,0 +1,3 @@
+api_key = 511f7d4c0cad0f61cb9e7037eae11ff2
+
+ejemplo solicitud = https://api.themoviedb.org/3/movie/550?api_key=511f7d4c0cad0f61cb9e7037eae11ff2
